@@ -28,6 +28,7 @@ achtergrond = "Achtergronden"
 kleurenkiezer = "Kleuren"
 regels = 'Spelregels'
 path = 'EOTS.pdf'
+stop = "Stop"
 
 #De breedte in een variable plaatsen (anders was er een error)
 width = 1280
@@ -159,6 +160,9 @@ def mouseClicked():
         text_color = bright/2
         line_color = 0
         scherm = 16
+        
+    elif width/64 < mouseX < width/64 + 45 and 676 < mouseY < 700:
+        exit()
 
 #Spelregels openen
     if width/1.2 < mouseX < width/1.01 and 676 < mouseY < 700:

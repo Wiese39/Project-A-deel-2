@@ -44,3 +44,6 @@ def mouseCursor():
     
     if width/1.1 < mouseX < width/1.01 and 676< mouseY < 700:
         cursor(HAND)
+        
+    if width/64 < mouseX < width/64 + 45 and 676 < mouseY < 700:
+        cursor(HAND)
