@@ -3,7 +3,7 @@ import cursorPos as cP
 
 scherm = 0
 
-color1 = "#E535E5"
+color1 = "#44028F"
 color2 = "#FF0000"
 color3 = "#0000FF"
 color4 = "#00FF00"
