@@ -1,4 +1,7 @@
-import cursorPos, schermen as s #Importeren van 2 functies die benodigd zijn verder in de code
+#Importeren van 2 functies die benodigd zijn verder in de code
+import os
+import cursorPos
+import schermen as s
 
 #Defineren van de kleuren
 color1 = "#E535E5"
@@ -23,6 +26,8 @@ spelMenu = "Speel menu"
 zwart_wit = "Zwart-Wit achtergrond"
 achtergrond = "Achtergronden"
 kleurenkiezer = "Kleuren"
+regels = 'Spelregels'
+path = 'EOTS.pdf'
 
 #De breedte in een variable plaatsen (anders was er een error)
 width = 1280
@@ -40,7 +45,7 @@ def setup():
     background(color1)
     size(1280, 720)
 
-#Het eenmalig tekenen van het scherm
+#Het eenmalig tekenen van het scherm, zie module 'schermen.py'
 def draw():
     if scherm == 0:
         s.scherm0()
@@ -93,11 +98,9 @@ def draw():
     if scherm == 16:
         s.scherm16()
 
-    cursorPos.mouseCursor()
-    loop()
-
+#Defineren van posities waar als de muis wordt ingedrukt er dingen veranderen aan de achtergrond
 def mouseClicked():
-    global text_color, line_color, scherm
+    global text_color, line_color, scherm, path
     if 15 < mouseX < 90 and 75 < mouseY < 150:
         background(img1)
         scherm = 1
@@ -156,6 +159,10 @@ def mouseClicked():
         text_color = bright/2
         line_color = 0
         scherm = 16
+
+#Spelregels openen
+    if width/1.2 < mouseX < width/1.01 and 676 < mouseY < 700:
+        os.system(path)
         
         
 
