@@ -4,6 +4,7 @@ notClicked3 = True
 notClicked4 = True
 notClicked5 = True
 notClicked6 = True
+
 plusincr = 0
 
 name1 = 'Speler 1'
@@ -27,12 +28,10 @@ def draw():
     fill('#8A2BE2')
     noStroke()
     
-    rect(400, 100, 500, 80, 12, 12, 12, 12)
+    rect(400, 100, 500, 80, 7)
     fill('#ffffff')
     textSize(39)
     text('Voer namen in!', 500, 150)
-    
-
     
     # Rechthoekjes met Speler textboxes
     global notClicked, notClicked2, notClicked3, notClicked4
@@ -41,21 +40,52 @@ def draw():
             fill('#8A2BE2')
         else: 
             fill('#5f079a')
+ 
+    def hoverMouse(x, y=280, xi= 120, yi=60):
+        if x < mouseX < x + xi and y < mouseY < y + yi:
+            fill('#5f079a') 
             
-    createRect(notClicked)
-    rect(300, 280, 120, 60, 10, 10, 10, 10)  
+    def hoverMouse2(x, y=280, xi= 120, yi=60):
+        if x < mouseX < x + xi and y < mouseY < y + yi:
+            fill('#55068a')    
+               
+    def createRect2(arg, x, y=280):
+        if arg:
+            fill('#8A2BE2')
+        else: 
+            fill('#5f079a')
+        hoverMouse(x, y)
     
-    createRect(notClicked2)   
-    rect(500, 280, 120, 60, 10, 10, 10, 10) 
+    def visual():
+        global plusincr
+        if plusincr == 0:
+            fill('#8A2BE2')
+        elif plusincr == 1:
+            fill('#8A2BE2')
+        else:
+            fill('#5f079a')
+    def visual2():
+        if plusincr == 0:
+            fill('#5f079a')
+        elif plusincr == 1:
+            fill('#8A2BE2')
+        else:
+            fill('#8A2BE2')
+        
+    createRect2(notClicked, 300)
+    rect(300, 280, 120, 60, 7)  
+    
+    createRect2(notClicked2, 500)   
+    rect(500, 280, 120, 60, 7) 
 
-    createRect(notClicked3)
-    rect(700, 280, 120, 60, 10, 10, 10, 10)
+    createRect2(notClicked3, 700)
+    rect(700, 280, 120, 60, 7)
     
-    createRect(notClicked4)
-    rect(900, 280, 120, 60, 10, 10, 10, 10)
+    createRect2(notClicked4, 900)
+    rect(900, 280, 120, 60, 7)
 
     global name1, name2, name3, name4
-    # 'String Speler 1 t/m 4'
+    # 'String Spel er 1 t/m 4'
     fill('#ffffff')
     textSize(20)    
     text(name1, 300 + 20, 320)
@@ -68,45 +98,50 @@ def draw():
         text (name6, 700 + 20, 420)
     
     # rondje met plusje om meer spelers toe tevoegen
-    fill('#8A2BE2')
-    rondje = ellipse(570, 520, 50, 50)
+    visual()
+    hoverMouse(700, 470, 100, 100)
     rondje2 = ellipse(750, 520, 50, 50)
+    visual2()
+    hoverMouse(520, 470, 100, 100)
+    rondje = ellipse(570, 520, 50, 50)
     fill('#ffffff')    
-    plusje = rect(550, 515, 40, 10, 12, 12, 12, 12), rect(745, 500, 10, 40, 12, 12, 12, 12)
+    plusje = rect(550, 515, 40, 10, 12), rect(745, 500, 10, 40, 12)
     
     minetje = rect(730, 515, 40, 10, 12, 12, 12, 12)
     fill ('#8A2BE2')
     if plusincr == 0:
         fill('#4B0082')
-        rect(500, 380, 120, 60, 10, 10, 10, 10)
-        rect(700, 380, 120, 60, 10, 10, 10, 10)
+        rect(500, 380, 120, 60, 7)
+        rect(700, 380, 120, 60, 7)
         
     elif plusincr == 1:
-        createRect(notClicked5)
-        rect(500, 380, 120, 60, 10, 10, 10, 10)
+        createRect2(notClicked5,500, 380)
+        rect(500, 380, 120, 60, 7)
         fill('#4B0082')
-        rect(700, 380, 120, 60, 10, 10, 10, 10)
-    
-    elif plusincr > 1:
-        createRect(notClicked5)
-        rect(500, 380, 120, 60, 10, 10, 10, 10)
-        
-        createRect(notClicked6)
-        rect(700, 380, 120, 60, 10, 10, 10, 10)
-        
-    fill('#ffffff')    
-    if plusincr == 1:
+        rect(700, 380, 120, 60, 7)
+        fill('#ffffff')
         text (name5, 500 + 20, 420)
     elif plusincr > 1:
+        createRect2(notClicked5,500 , 380)
+        rect(500, 380, 120, 60, 7)
+        createRect2(notClicked6, 700, 380)
+        rect(700, 380, 120, 60, 7)
+        fill('#ffffff')
         text (name5, 500 + 20, 420)
         text (name6, 700 + 20, 420)
-    
+        
     #Back, en start knoppen
+    fill('#5f079a')
+    hoverMouse2(120, 565, 90, 50)
+    rect(120,565,90,50,7)
+    fill('#5f079a')
+    hoverMouse2(1090, 565, 90, 50)
+    rect(120 + 970, 565, 90 ,50,7)
+    fill('#ffffff')
     textSize(30)
     text("Back", 130, 600) 
     text("Start", 1100, 600)
 
-    
 def mousePressed():
     global notClicked, notClicked2, notClicked3, notClicked4, notClicked5, notClicked6
     global name1, name2, name3, name4, name5, name6
@@ -114,8 +149,8 @@ def mousePressed():
     if 300 < mouseX < 420 and 280 < mouseY < 340: # speler 1                                         
         notClicked = not notClicked
     else:
-        notClicked  = True 
-    
+        notClicked  = True
+
     if 300 + 200 < mouseX < 620  and 280 < mouseY < 340 : # speler 2                                       
         notClicked2 = not notClicked2
     else:
@@ -153,12 +188,7 @@ def mousePressed():
         plusincr -= 1
         if plusincr < 0:
             plusincr = 0
-            
-   #if 120 < mouseX < 220 and 600 < mouseY < 620: 
-        
-    #if 1100 < mouseX < 1200 and 600 < mouseY < 620:
-    
-   
+
 #Functionaliteit: Invoeren van namen
 def keyPressed():
     global notClicked
