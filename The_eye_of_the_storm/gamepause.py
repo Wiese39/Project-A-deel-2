@@ -1,9 +1,11 @@
+import colors as c
+
 huidig_scherm = 1
 def gmp_setup():
     # size(1280,720)                                     #  size delen door 2
     background(0)
 def gmp_draw():
-    background('#4B0082')
+    background(c.main_c)
     #Hervatten
     fill('#8A2BE2')
     if 540 < mouseX <740  and 250 < mouseY <300: 

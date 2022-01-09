@@ -1,3 +1,5 @@
+import colors as c
+
 notClicked = True
 notClicked2 = True
 notClicked3 = True
@@ -20,8 +22,7 @@ chars = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "
 
 def setup_draw():
     global notClicked, notClicked2, notClicked3, notClicked4
-    
-    background('#4B0082')
+    background(c.main_c)
     # Rechthoek: Voer namen in!
     fill('#571692')
     noStroke()
